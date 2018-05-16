@@ -1,0 +1,23 @@
+{
+  "name": "react-mall",
+  "version": "1.0.0",
+  "description": "A mall backstage build by react.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yisimo/react-mall.git"
+  },
+  "keywords": [
+    "react",
+    "mall"
+  ],
+  "author": "yisimo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yisimo/react-mall/issues"
+  },
+  "homepage": "https://github.com/yisimo/react-mall#readme"
+}
