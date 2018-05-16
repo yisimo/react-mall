@@ -1,2 +1,2 @@
 # react-mall
-A mall system build by react.
+A mall backstage build by react.
