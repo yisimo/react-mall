@@ -10,6 +10,12 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'js/app.js'
   },
+  resolve: {
+		alias: {
+			pages: path.resolve(__dirname, 'src/pages'),
+			components: path.resolve(__dirname, 'src/components'),
+		}
+  },
   module: {
 	  rules: [
 	  	// react文件的处理
@@ -70,7 +76,8 @@ module.exports = {
   plugins: [
   	// 处理html文件
   	new HtmlWebpackPlugin({
-  		template: './src/index.html'
+  		template: './src/index.html',
+  		favicon: './favicon.ico'
   	}),
   	// 独立css
   	new ExtractTextPlugin("css/[name].css"),
@@ -81,6 +88,9 @@ module.exports = {
   	})
   ],
   devServer: {
-  	port: 8086
+  	port: 8086,
+  	historyApiFallback: {
+  		index: '/dist/index.html'
+  	}
   }
 };
