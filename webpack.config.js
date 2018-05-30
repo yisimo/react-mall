@@ -14,6 +14,8 @@ module.exports = {
 		alias: {
 			pages: path.resolve(__dirname, 'src/pages'),
 			components: path.resolve(__dirname, 'src/components'),
+			util: path.resolve(__dirname, 'src/util'),
+			service: path.resolve(__dirname, 'src/service'),
 		}
   },
   module: {
@@ -91,6 +93,16 @@ module.exports = {
   	port: 8086,
   	historyApiFallback: {
   		index: '/dist/index.html'
+  	},
+  	proxy: {
+  		'/manage': {
+  			target: 'http://admintest.happymmall.com',
+  			changeOrigin: true
+  		},
+        '/user/logout.do' : {
+            target: 'http://admintest.happymmall.com',
+            changeOrigin : true
+        }
   	}
   }
 };
