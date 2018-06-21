@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageTitle from 'components/page-title/index.jsx';
 import Pagination from 'util/pagination/index.jsx';
+import TableList from 'util/table-list/index.jsx';
 import MUtil from 'util/mm.jsx';
 import User from 'service/user-service.jsx';
 
@@ -18,7 +19,7 @@ class UserList extends React.Component{
 		}
 	}
 	componentDidMount() {
-		this.loadUserList();
+		this.loadUserList(); 
 	}
 	loadUserList() {
 		_user.getUserList(this.state.pageNum).then(res => {
@@ -53,35 +54,20 @@ class UserList extends React.Component{
 				</tr>
 			);
 		});
-		let listError = (
+		let listInfo = (
 			<tr>
 				<td colSpan="5" className='text-center'>
 					{this.state.firstLoading ? '正在加载数据...' : '没有找到相应的结果~'}
 				</td>
 			</tr>
 		);
-		let tableBody = this.state.list.length > 0 ? listBody : listError;
+		let tableBody = this.state.list.length > 0 ? listBody : listInfo;
 		return (
 			<div id="page-wrapper">
 				<PageTitle title='用户列表'/>
-				<div className="row">
-					<div className="col-md-12">
-						<table className="table table-striped table-bordered">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>用户名</th>
-									<th>邮箱</th>
-									<th>电话</th>
-									<th>注册时间</th>
-								</tr>
-							</thead>
-							<tbody>
-								{tableBody}
-							</tbody>
-						</table>
-					</div>
-				</div>
+				<TableList tableHeads={['ID','用户名','邮箱','电话','注册时间']}>
+					{tableBody}
+				</TableList>
 				<Pagination 
 					current={this.state.pageNum} 
 					total={this.state.total} 
