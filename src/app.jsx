@@ -12,30 +12,28 @@ import ErrorPage from 'pages/error/index.jsx';
 import ProductRouter from 'pages/product/router.jsx';
 
 class App extends React.Component{
-	render() {
-		let LayoutRouter = (
-			<Layout>
-				<Switch>
-					<Route exact path='/' component={Home} />
-					<Route path='/product' component={ProductRouter}/>
-					<Route path='/product-category' component={ProductRouter}/>
-					<Route path='/user/index' component={UserList}/>
-					<Redirect exact from='/user' to='/user/index' />
-					<Route component={ErrorPage} />
-				</Switch>
-			</Layout>
-		);
-		return (
-			<Router>
-				<Switch>
-					<Route path='/login' component={Login}/>
-					<Route path='/' render={props => (
-						LayoutRouter
-					)}/>
-				</Switch>
-			</Router>
-		);
-	}
+	render(){
+        let LayoutRouter = (
+            <Layout> 
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/product" component={ProductRouter}/>
+                    <Route path="/product-category" component={ProductRouter}/>
+                    <Route path="/user/index" component={UserList}/>
+                    <Redirect exact from="/user" to="/user/index"/>
+                    <Route component={ErrorPage}/>
+                </Switch>
+            </Layout>
+        );
+        return (
+            <Router>
+                <Switch>
+                    <Route path="/login" component={Login}/>
+                    <Route path="/" render={ props => LayoutRouter}/>
+                </Switch>
+            </Router>
+        )
+    }
 }
 
 ReactDOM.render(

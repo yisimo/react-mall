@@ -14,8 +14,7 @@ class UserList extends React.Component{
 		super(props);
 		this.state = {
 			list: [],
-			pageNum: 1,
-			firstLoading: true
+			pageNum: 1
 		}
 	}
 	componentDidMount() {
@@ -23,11 +22,7 @@ class UserList extends React.Component{
 	}
 	loadUserList() {
 		_user.getUserList(this.state.pageNum).then(res => {
-			this.setState(res, () => {
-				this.setState({
-					firstLoading: false
-				})
-			})
+			this.setState(res)
 		}, errMsg => {
 			this.setState({
 				list: []
