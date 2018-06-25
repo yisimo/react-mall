@@ -35,14 +35,10 @@ class ProductList extends React.Component{
 			listParam.keyword = this.state.searchKeyword;
 		}
 		_product.getProductList(listParam).then(res => {
-			this.setState(res, () => {
-				this.setState({
-					firstLoading: false
-				})
-			})
+			this.setState(res)
 		}, errMsg => {
 			this.setState({
-				lsit: []
+				list: []
 			});
 			_mm.errorTips(errMsg);
 		})

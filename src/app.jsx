@@ -6,6 +6,8 @@ import Layout from 'components/layout/index.jsx';
 // 引入页面
 import Home from 'pages/home/index.jsx';
 import Login from 'pages/login/index.jsx';
+import OrderList from 'pages/order/index.jsx';
+import OrderDetail from 'pages/order/detail.jsx';
 import UserList from 'pages/user/index.jsx';
 import ErrorPage from 'pages/error/index.jsx';
 
@@ -19,8 +21,11 @@ class App extends React.Component{
                     <Route exact path="/" component={Home}/>
                     <Route path="/product" component={ProductRouter}/>
                     <Route path="/product-category" component={ProductRouter}/>
+                    <Route path='/order/index' component={OrderList} />
+                    <Route path='/order/detail/:orderNumber' component={OrderDetail} />
                     <Route path="/user/index" component={UserList}/>
-                    <Redirect exact from="/user" to="/user/index"/>
+                    <Redirect exact from='/order' to='/order/index' />
+                    <Redirect exact from="/user" to="/user/index" />
                     <Route component={ErrorPage}/>
                 </Switch>
             </Layout>
